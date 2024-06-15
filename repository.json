@@ -1,0 +1,5 @@
+{
+  "name": "Home Assistant Add-on: Zigbee2MQTT Multi-Instance",
+  "url": "https://github.com/gdgib/hassio-zigbee2mqtt-multi",
+  "maintainer": "Greg Gibeling"
+}
