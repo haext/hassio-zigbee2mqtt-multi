@@ -26,11 +26,11 @@
     "config:rw"
   ],
   "ports": {
-    "8485/tcp": 8485,
+    "8486/tcp": 8486,
     "8099/tcp": null
   },
   "ports_description": {
-    "8485/tcp": "Socat tcp-listen port",
+    "8486/tcp": "Socat tcp-listen port",
     "8099/tcp": "Frontend tcp-listen port"
   },
   "options": {
@@ -38,7 +38,7 @@
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
-      "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
+      "slave": "tcp-listen:8486,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
       "options": "-d -d",
       "log": false
     },
