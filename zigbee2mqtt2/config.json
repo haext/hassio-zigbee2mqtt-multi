@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2MQTT2",
-  "version": "edge",
+  "version": "1.40.0-1",
   "slug": "zigbee2mqtt2",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
@@ -72,5 +72,5 @@
       "rtscts": "bool?"
     }
   },
-  "image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"
+  "image": "zigbee2mqtt/zigbee2mqtt-{arch}"
 }
