@@ -1,3 +1,6 @@
+## 1.40.1-1
+- Updated Zigbee2MQTT to version [`1.40.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.40.1)
+
 ## 1.40.0-1
 - Using zigbee2mqtt image since https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/pull/620 is now in the release
 - Updated Zigbee2MQTT to version [`1.40.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.40.0)
