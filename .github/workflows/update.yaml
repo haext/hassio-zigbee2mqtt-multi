@@ -7,7 +7,7 @@ on:
         required: true
         type: string
 jobs:
-  updateFork:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,6 +23,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.PAT }}
           commit-message: Update to Zigbee2MQTT ${{ inputs.version }}
           title: Zigbee2MQTT ${{ inputs.version }}
           branch: update-${{ inputs.version }}
