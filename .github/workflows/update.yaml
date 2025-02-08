@@ -20,7 +20,7 @@ jobs:
       - name: Changelog
         run: |
           cd zigbee2mqtt2
-          echo -e "## ${{ inputs.version }}-1\n- Updated Zigbee2MQTT to version [`${{ inputs.version }}`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ inputs.version }})\n" | cat - CHANGELOG.md > CHANGELOG.tmp
+          echo -e "## ${{ inputs.version }}-1\n- Updated Zigbee2MQTT to version [\`${{ inputs.version }}\`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ inputs.version }})\n" | cat - CHANGELOG.md > CHANGELOG.tmp
           mv CHANGELOG.tmp CHANGELOG.md
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
