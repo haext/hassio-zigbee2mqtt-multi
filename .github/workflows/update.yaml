@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Configuration
         run: |
           echo $(jq --arg v "${{ inputs.version }}-1" '.version = ($v)' zigbee2mqtt2/config.json) > zigbee2mqtt2/config.json
@@ -23,7 +21,6 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.PAT }}
           commit-message: Update to Zigbee2MQTT ${{ inputs.version }}
           title: Zigbee2MQTT ${{ inputs.version }}
           branch: update-${{ inputs.version }}
