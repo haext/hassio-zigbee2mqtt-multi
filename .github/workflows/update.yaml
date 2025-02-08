@@ -14,10 +14,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Configuration
         run: |
-          echo $(jq --arg v "${{ inputs.version }}-1" '.version = ($v)' zigbee2mqtt2/config.json) > zigbee2mqtt2/config.json
+          cd zigbee2mqtt2
+          jq --arg v "${{ inputs.version }}-1" '.version = ($v)' config.json > config.tmp
+          mv config.tmp config.json
       - name: Changelog
         run: |
-          echo "## ${{ inputs.version }}-1\n- Updated Zigbee2MQTT to version [`${{ inputs.version }}`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ inputs.version }})\n\n" | cat - zigbee2mqtt2/CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
+          cd zigbee2mqtt2
+          echo -e "## ${{ inputs.version }}-1\n- Updated Zigbee2MQTT to version [`${{ inputs.version }}`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ inputs.version }})\n\n" | cat - CHANGELOG.md > CHANGELOG.tmp
+          mv CHANGELOG.tmp CHANGELOG.md
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
