@@ -1,0 +1,28 @@
+name: Update Zigbee2MQTT
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The new Zigbee2MQTT version (no dash on the end)'
+        required: true
+        type: string
+jobs:
+  updateFork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configuration
+        run: |
+          echo $(jq --arg v "${{ inputs.version }}-1" '.version = ($v)' zigbee2mqtt2/config.json) > zigbee2mqtt2/config.json
+      - name: Changelog
+        run: |
+          echo "## ${{ inputs.version }}-1\n- Updated Zigbee2MQTT to version [`${{ inputs.version }}`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ inputs.version }})\n\n" | cat - zigbee2mqtt2/CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: Update to Zigbee2MQTT ${{ inputs.version }}
+          title: Zigbee2MQTT ${{ inputs.version }}
+          branch: update-${{ inputs.version }}
