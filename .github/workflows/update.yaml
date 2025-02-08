@@ -26,5 +26,6 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           commit-message: Update to Zigbee2MQTT ${{ inputs.version }}
-          title: Zigbee2MQTT ${{ inputs.version }}
+          title: Update to Zigbee2MQTT ${{ inputs.version }}
+          body:
           branch: update-${{ inputs.version }}
