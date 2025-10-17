@@ -1,3 +1,6 @@
+## 2.6.2-3
+- Revert container registry
+
 ## 2.6.2-2
 - Updated config.json to match Zigbee2MQTT add on
 - Fix log timezone
