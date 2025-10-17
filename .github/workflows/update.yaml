@@ -1,4 +1,4 @@
-name: Update Zigbee2MQTT
+name: Update Zigbee2MQTT2
 on:
   workflow_dispatch:
     inputs:
