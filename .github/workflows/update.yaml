@@ -12,14 +12,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Configuration
+      - name: Configuration for Z2M2
         run: |
           cd zigbee2mqtt2
           jq --arg v "${{ inputs.version }}-1" '.version = ($v)' config.json > config.tmp
           mv config.tmp config.json
-      - name: Changelog
+      - name: Changelog for Z2M2
         run: |
           cd zigbee2mqtt2
+          echo -e "## ${{ inputs.version }}-1\n- Updated Zigbee2MQTT to version [\`${{ inputs.version }}\`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ inputs.version }})\n" | cat - CHANGELOG.md > CHANGELOG.tmp
+          mv CHANGELOG.tmp CHANGELOG.md
+      - name: Configuration for Z2M3
+        run: |
+          cd zigbee2mqtt3
+          jq --arg v "${{ inputs.version }}-1" '.version = ($v)' config.json > config.tmp
+          mv config.tmp config.json
+      - name: Changelog for Z2M3
+        run: |
+          cd zigbee2mqtt3
           echo -e "## ${{ inputs.version }}-1\n- Updated Zigbee2MQTT to version [\`${{ inputs.version }}\`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ inputs.version }})\n" | cat - CHANGELOG.md > CHANGELOG.tmp
           mv CHANGELOG.tmp CHANGELOG.md
       - name: Create Pull Request

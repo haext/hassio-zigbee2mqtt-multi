@@ -31,4 +31,4 @@ You can configure the socat module within the socat section using the following 
 - `options` extra options added to the socat command line (optional)
 - `log` true/false if to log the socat stdout/stderr to data_path/socat.log (default: false)
 
-**NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8486` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial port setting is NOT automatically set and has to be changed accordingly.
+**NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8487` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial port setting is NOT automatically set and has to be changed accordingly.
